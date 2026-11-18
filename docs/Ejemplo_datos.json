@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "0.1.0",
+  "demo": true,
+  "machine": "PC-DE-EJEMPLO",
+  "startedAt": "2026-11-18T10:00:00-03:00",
+  "finishedAt": "2026-11-18T10:00:15-03:00",
+  "administrator": false,
+  "checks": [
+    {
+      "id": "inventory",
+      "category": "Equipo",
+      "title": "Equipo y Windows",
+      "scope": "Identificacion; no prueba funcionamiento.",
+      "status": "info",
+      "summary": "Inventario de ejemplo. Los datos son ficticios.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [
+        {
+          "Dato": "Equipo",
+          "Valor": "PC-DE-EJEMPLO"
+        },
+        {
+          "Dato": "Windows",
+          "Valor": "Windows de demostración"
+        },
+        {
+          "Dato": "Modelo",
+          "Valor": "Datos ficticios; ejecutar el diagnóstico para ver tu PC"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "cpu",
+      "category": "Hardware",
+      "title": "Procesador y actividad",
+      "scope": "Tres muestras de uso; sin carga de estres ni lectura termica.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "ram",
+      "category": "Hardware",
+      "title": "Memoria instalada y disponible",
+      "scope": "Capacidad, modulos y presion de memoria en este momento.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "ramtest",
+      "category": "Hardware",
+      "title": "Prueba completa de RAM",
+      "scope": "Requiere reinicio; no se ejecuta en el analisis automatico.",
+      "status": "unknown",
+      "summary": "Comprobación pendiente en este ejemplo.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "gpu",
+      "category": "Hardware",
+      "title": "Placa de video y controlador",
+      "scope": "Enumeracion del adaptador; no prueba VRAM, renderizado ni estabilidad.",
+      "status": "unknown",
+      "summary": "Comprobación pendiente en este ejemplo.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "disks",
+      "category": "Almacenamiento",
+      "title": "Discos: estado y telemetria",
+      "scope": "Estado que informa Windows; contadores segun soporte del controlador.",
+      "status": "unknown",
+      "summary": "Ejemplo: el controlador no expone todos los sensores.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [
+        {
+          "Disco": "Unidad ficticia",
+          "Tipo": "SSD",
+          "GB": 500,
+          "Estado_Windows": "Healthy",
+          "Temperatura_C": "ND",
+          "Desgaste_pct": "ND"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "volumes",
+      "category": "Almacenamiento",
+      "title": "Espacio y estado de volumenes",
+      "scope": "Unidades locales con letra; no ejecuta CHKDSK ni un escaneo de superficie.",
+      "status": "warn",
+      "summary": "Ejemplo: la unidad C: tiene 7,5 % de espacio disponible.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [
+        {
+          "Unidad": "C:",
+          "Sistema": "NTFS",
+          "Estado": "Healthy",
+          "Total_GB": 500,
+          "Libre_GB": 37.5,
+          "Libre_pct": 7.5
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "pnp",
+      "category": "Hardware",
+      "title": "Dispositivos y controladores con errores",
+      "scope": "Codigos de Administrador de dispositivos; no busca drivers nuevos en Internet.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "battery",
+      "category": "Hardware",
+      "title": "Bateria de notebook",
+      "scope": "Capacidad declarada por el firmware; no prueba autonomia real.",
+      "status": "na",
+      "summary": "Ejemplo de PC sin batería.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "thermals",
+      "category": "Hardware",
+      "title": "Temperaturas, ventiladores y fuente",
+      "scope": "Pendiente de sensor compatible y mediciones fisicas.",
+      "status": "unknown",
+      "summary": "Comprobación pendiente en este ejemplo.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "events",
+      "category": "Estabilidad",
+      "title": "Eventos de hardware, disco y reinicios",
+      "scope": "Ultimos 7 dias; hasta 200 eventos coincidentes mas recientes.",
+      "status": "warn",
+      "summary": "Ejemplo: un reinicio inesperado registrado.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [
+        {
+          "Fecha": "2026-11-17 18:35",
+          "Origen": "Microsoft-Windows-Kernel-Power",
+          "Id": 41,
+          "Mensaje": "Ejemplo ficticio: reinicio inesperado. No determina por sí solo la causa."
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "appscrash",
+      "category": "Estabilidad",
+      "title": "Cierres y bloqueos de aplicaciones",
+      "scope": "Ultimos 7 dias; hasta 100 eventos mas recientes.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "security",
+      "category": "Windows",
+      "title": "Antivirus y proteccion",
+      "scope": "Estado declarado; no ejecuta un analisis de malware.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "firewall",
+      "category": "Windows",
+      "title": "Firewall de Windows",
+      "scope": "Perfiles configurados; no escanea puertos ni verifica una suite de terceros.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "updates",
+      "category": "Windows",
+      "title": "Actualizaciones instaladas y reinicio",
+      "scope": "Historial local parcial; no comprueba actualizaciones disponibles en linea.",
+      "status": "info",
+      "summary": "Inventario de ejemplo. Los datos son ficticios.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "integrity",
+      "category": "Windows",
+      "title": "Integridad de archivos y componentes",
+      "scope": "SFC y DISM son pruebas adicionales, no parte de la revision rapida.",
+      "status": "unknown",
+      "summary": "Comprobación pendiente en este ejemplo.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "processes",
+      "category": "Software",
+      "title": "Procesos con mayor uso de memoria",
+      "scope": "Instantanea; no analiza codigo malicioso ni mide CPU historica por proceso.",
+      "status": "info",
+      "summary": "Inventario de ejemplo. Los datos son ficticios.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "startup",
+      "category": "Software",
+      "title": "Inicio automatico",
+      "scope": "Comandos de inicio visibles por WMI; no incluye todas las tareas y servicios.",
+      "status": "info",
+      "summary": "Inventario de ejemplo. Los datos son ficticios.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "software",
+      "category": "Software",
+      "title": "Programas instalados",
+      "scope": "Entradas de desinstalacion de maquina y usuario actual; no todos los paquetes Store.",
+      "status": "info",
+      "summary": "Inventario de ejemplo. Los datos son ficticios.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [
+        {
+          "Programa": "Aplicación de ejemplo",
+          "Version": "1.0",
+          "Editor": "Editor ficticio"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "network",
+      "category": "Conectividad",
+      "title": "Adaptadores y enlace de red",
+      "scope": "Estado local del enlace; no prueba acceso a Internet, DNS ni velocidad real.",
+      "status": "ok",
+      "summary": "Ejemplo de consulta sin alertas; no representa una medición real.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    },
+    {
+      "id": "peripherals",
+      "category": "Perifericos",
+      "title": "Audio, pantalla, USB e impresion",
+      "scope": "Deteccion de dispositivos; funcionamiento fisico requiere prueba manual.",
+      "status": "unknown",
+      "summary": "Comprobación pendiente en este ejemplo.",
+      "next": "Este archivo permite revisar la interfaz. Ejecutá la aplicación en Windows para obtener tus resultados.",
+      "rows": [],
+      "error": null
+    }
+  ],
+  "manual": [],
+  "limitations": [
+    "Datos de demostración: este archivo no representa un diagnóstico real.",
+    "La detección de un componente no confirma su funcionamiento bajo carga.",
+    "CPU/GPU, sensores, RAM completa y fuente requieren pruebas adicionales."
+  ]
+}

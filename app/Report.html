@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'">
+<title>OptimizadorPc · Informe de diagnóstico</title>
+<style>
+:root{font-family:Segoe UI,system-ui,sans-serif;color:#172d3b;background:#f3f5f5;font-size:15px;--muted:#516572;--line:#d7e0e2;--accent:#006c64}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer;min-height:42px;border:1px solid #b5c6cb;border-radius:7px;background:white;color:#183b4b;padding:9px 15px;font-weight:600}button:hover{border-color:var(--accent);background:#edf5f3}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #007cba;outline-offset:3px}button.primary{background:var(--accent);color:white;border-color:var(--accent)}header{background:#132f3b;color:#fff;padding:25px max(24px,calc((100vw - 1280px)/2));border-bottom:5px solid #14a18f}.brand{font-weight:700;font-size:18px;letter-spacing:.3px}.brand span{font-weight:400;color:#a3c9cf;margin-left:12px;font-size:14px}.heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-top:24px}h1{font-size:32px;font-weight:650;margin:0 0 8px;letter-spacing:-.6px}h2{font-size:21px;margin:0 0 15px}h3{font-size:17px;margin:0}p{line-height:1.55;margin:7px 0}header p{color:#c4dade}.actions{display:flex;gap:8px;flex-wrap:wrap}main{max-width:1328px;padding:25px 24px 55px;margin:auto}.notice{border-left:4px solid #658d9b;padding:12px 16px;background:#e8eff1;color:#284754;line-height:1.5;margin-bottom:22px}.counts{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:28px}.count{background:#fff;padding:15px;border:1px solid var(--line);border-radius:8px}.count strong{font-size:28px;display:block;line-height:1.2}.count span{font-size:13px;color:var(--muted);display:block;margin-top:7px}.count.critical{border-top:4px solid #a42132}.count.warn{border-top:4px solid #a15b00}.count.unknown{border-top:4px solid #647685}.count.ok{border-top:4px solid #00735b}.priority{margin-bottom:27px}.priority article{padding:13px 17px;background:white;border:1px solid var(--line);border-left:4px solid #a15b00;margin:9px 0;border-radius:6px}.priority article.critical{border-left-color:#a42132}.priority article p{color:#405864;font-size:14px}.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:24px}aside nav{display:grid;gap:6px}aside button{text-align:left;border-color:transparent;background:transparent;font-weight:500}aside button.active{background:#dceeea;color:#004e48;font-weight:700}aside p{font-size:13px;color:var(--muted);margin:22px 10px}.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}input[type=search]{width:min(100%,360px);padding:11px 13px;border:1px solid #b5c6cb;border-radius:7px;background:white}label{font-size:14px;color:#3b5562}.result{background:white;border:1px solid var(--line);border-radius:8px;margin-bottom:11px;overflow:hidden}.result summary{list-style:none;cursor:pointer;padding:18px 19px;display:flex;gap:14px;align-items:start}.result summary::-webkit-details-marker{display:none}.result summary:after{content:'+';margin-left:auto;font-size:22px;line-height:1}.result[open] summary:after{content:'−'}.result summary p{font-size:14px;color:var(--muted);margin-top:5px}.badge{font-size:12px;border-radius:5px;padding:5px 8px;white-space:nowrap;font-weight:650;display:inline-block}.badge.ok{color:#005a45;background:#dcf3e8}.badge.warn{color:#754100;background:#fff0d5}.badge.critical{color:#8c1b2c;background:#fce5e8}.badge.unknown{color:#435465;background:#eaf0f4}.badge.info,.badge.na{color:#405c6c;background:#edf3f5}.body{border-top:1px solid #e4e9eb;padding:16px 19px}.scope{font-size:13px;color:var(--muted);margin-bottom:15px}.next{padding:12px 14px;background:#f1f6f6;border-radius:5px;margin-top:12px;font-size:14px}.tablewrap{max-height:360px;overflow:auto;border:1px solid #e0e7e8;border-radius:5px;margin:10px 0}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #e4ebed;vertical-align:top;min-width:110px;max-width:620px;overflow-wrap:anywhere;white-space:pre-wrap}th{background:#edf3f4;position:sticky;top:0;white-space:nowrap;font-weight:650}tbody tr:nth-child(even){background:#f9fbfb}.technical{color:#805000;font-family:Consolas,monospace;font-size:12px;overflow-wrap:anywhere}.empty{padding:35px;text-align:center;background:white;border:1px dashed var(--line)}#manual{margin-top:35px;padding-top:28px;border-top:1px solid var(--line)}.manualintro{max-width:900px;color:var(--muted)}.manualgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.manualcard{background:#fff;padding:18px;border:1px solid var(--line);border-radius:7px}.manualcard p{font-size:14px;color:var(--muted);min-height:65px}.manualcard .choices{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}.choices button{font-size:13px;min-height:38px;padding:6px 10px}.choices button.selected{border:2px solid #006c64;background:#e0f3ed;color:#004e48}.testtools{padding:18px;background:#e6eeef;border:1px solid #cfdcde;border-radius:8px;margin:17px 0;display:flex;gap:12px;flex-wrap:wrap;align-items:center}.testtools p{flex-basis:100%;font-size:13px;color:var(--muted)}#keys{padding:10px;background:white;border:1px solid #9cb5bf;min-height:42px;flex-basis:100%;border-radius:6px}#keys:focus{outline:3px solid #007cba}#overlay{position:fixed;inset:0;z-index:10;display:none;align-items:flex-end;justify-content:center;padding:30px}#overlay p{background:#172d3b;color:white;padding:13px 20px;border-radius:5px;font-size:14px}footer{margin-top:32px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:18px}footer ul{line-height:1.7}.subtle{font-size:13px;color:var(--muted)}#fatal{padding:40px;max-width:800px;margin:auto}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:960px){.heading{display:block}.heading .actions{margin-top:20px}.counts{grid-template-columns:repeat(3,1fr)}.workspace{grid-template-columns:1fr}aside nav{display:flex;flex-wrap:wrap}aside p{display:none}.manualgrid{grid-template-columns:1fr}}
+@media(max-width:600px){header{padding:21px 17px}main{padding:20px 14px}.brand span{display:block;margin:6px 0 0}h1{font-size:27px}.counts{gap:6px}.count{padding:11px}.count strong{font-size:23px}.count span{font-size:11px}.result summary{flex-wrap:wrap;padding:14px}.result summary .title{flex-basis:100%;order:2}.result summary:after{order:1}.badge{font-size:11px}.body{padding:13px}.manualcard p{min-height:0}}
+@media print{body{background:white;font-size:11px}header{background:white;color:#172d3b;padding:0 0 15px;border-bottom:2px solid #006c64}header p{color:#405864}.actions,aside,.filters,.testtools,.choices,.screenbtn{display:none!important}main{padding:15px 0}.workspace{display:block}.counts{gap:6px}.count{padding:8px}.count strong{font-size:20px}.result{break-inside:avoid}.result summary{padding:10px}.tablewrap{max-height:none;overflow:visible}table{font-size:9px}th,td{min-width:0;padding:5px}th{position:static}.manualgrid{grid-template-columns:1fr 1fr}.manualcard{break-inside:avoid}.manualcard p{min-height:0}.body{padding:10px}.notice{font-size:11px}.badge{font-size:10px}}
+</style>
+</head>
+<body>
+<header><div class="brand">OPTIMIZADORPC <span>Diagnóstico local · versión 0.2</span></div><div class="heading"><div><h1>Lo que sabemos de tu PC.</h1><p id="meta">Cargando informe…</p></div><div class="actions"><button id="jump">Pruebas guiadas</button><button id="export">Exportar JSON</button><button class="primary" id="print">Imprimir / PDF</button></div></div></header>
+<main id="main"><div class="notice"><strong>Alcance del informe.</strong> «Sin alertas» se refiere solo a la consulta indicada. Los controles pendientes y los sensores ausentes quedan visibles. Este informe no certifica que todos los componentes funcionen correctamente.</div><div class="counts" id="counts" aria-label="Resumen de comprobaciones"></div><section class="priority" id="priorities"></section><div class="workspace"><aside><nav id="categories" aria-label="Filtrar por área"></nav><p>Todo se procesa en esta PC. El informe no usa servicios externos.</p></aside><section aria-label="Resultados"><div class="filters"><label for="search" class="sr">Buscar comprobación</label><input id="search" type="search" placeholder="Buscar componente o problema"><label><input type="checkbox" id="attention"> Alertas y pendientes</label><span id="shown" class="subtle" aria-live="polite"></span></div><div id="results"></div></section></div><section id="manual"><h2>Pruebas que necesitan tu participación</h2><p class="manualintro">Marcá el resultado después de hacer cada prueba. Estas respuestas son observaciones tuyas y se guardan en este navegador si lo permite. Exportá el JSON para conservarlas o compartirlas. No reemplazan las pruebas de laboratorio.</p><div class="testtools"><button class="screenbtn" id="screen">Colores de pantalla</button><button id="left">Tono izquierdo</button><button id="right">Tono derecho</button><button id="keyboard">Probar teclado</button><p>Pantalla: clic para cambiar de color; Escape para salir. Audio: bajá el volumen antes de reproducir. Teclado: muestra códigos de teclas, sin registrar texto escrito.</p><div id="keys" tabindex="0" role="region" aria-label="Zona de prueba del teclado">Activá «Probar teclado» y presioná las teclas acá.</div></div><div id="manualgrid" class="manualgrid"></div><p id="manualstate" class="subtle" aria-live="polite"></p></section><footer><strong>Límites y datos del informe</strong><ul id="limits"></ul><p>Puede contener nombre del equipo, programas y mensajes de eventos con rutas o nombres personales. Revisalo antes de compartirlo. Los archivos automáticos originales no cambian al marcar pruebas manuales.</p><p>OptimizadorPc · Software de diagnóstico inicial. Consultá README.md para alcance, instrucciones y fuentes técnicas.</p></footer></main><div id="overlay" role="dialog" aria-label="Prueba visual de colores"><p>Clic: siguiente color · Escape: salir</p></div>
+<script>
+'use strict';
+const encoded='__REPORT_BASE64__';
+const labels={critical:'Prioridad',warn:'Atención',unknown:'Sin verificar',ok:'Sin alertas',info:'Inventario',na:'No aplica'};
+const order=['critical','warn','unknown','ok','info','na'];
+const manualTests=[
+ ['screen','Pantalla y cable de video','Recorré los colores sólidos y buscá puntos fijos, manchas, parpadeos o líneas. Probá también otra entrada o cable si hay fallas.'],
+ ['speakers','Parlantes y auriculares','Reproducí los tonos izquierdo y derecho a volumen bajo. Confirmá cada canal. Una configuración mono puede mezclar ambos. Probá la salida que usás habitualmente.'],
+ ['microphone','Micrófono','En Grabadora de sonido de Windows, grabá una frase y escuchala. Confirmá que se use el micrófono correcto y que no haya cortes.'],
+ ['camera','Cámara','Abrí Cámara de Windows y revisá imagen, enfoque y continuidad. Este informe no accede a tu cámara ni a tu micrófono.'],
+ ['keyboard','Teclado y mouse','En la zona de teclado, comprobá teclas y combinaciones. Revisá clic izquierdo, derecho, doble clic, rueda y desplazamiento del mouse. La tecla Fn puede no llegar al navegador.'],
+ ['usb','Puertos USB y lector de tarjetas','Probá cada puerto con un dispositivo que funcione. Para almacenamiento, copiá un archivo de prueba propio y abrilo; expulsá la unidad antes de retirarla.'],
+ ['printer','Impresoras','Desde Configuración de Windows > Impresoras y escáneres, imprimí una página de prueba. En ticketeadoras, comprobá también corte, tamaño y funcionamiento desde tu programa de ventas.'],
+ ['network','Internet, Wi-Fi y Ethernet','Probá abrir sitios distintos, una descarga y, si usás red local, el acceso a otra PC o impresora. Probá por cable y por Wi-Fi cuando corresponda.'],
+ ['ram','RAM: prueba con reinicio','Ejecutá Diagnóstico de memoria desde la ventana principal. Guardá el trabajo antes de reiniciar y consultá el resultado real en Windows. Marcá correcto solo si terminó sin errores.'],
+ ['windows','Archivos de Windows','Ejecutá SFC /verifyonly y DISM /ScanHealth desde la ventana principal y leé sus resultados. Marcá correcto solo si ambas comprobaciones terminaron sin corrupción detectada.'],
+ ['load','CPU, GPU y refrigeración bajo carga','Pendiente de un módulo de sensores y una prueba de carga supervisada. El análisis automático de esta versión no comprueba estabilidad bajo carga ni errores de VRAM.'],
+ ['power','Fuente, placa madre y conexiones','La comprobación de tensiones y fallas intermitentes requiere instrumental o sustitución controlada de componentes por un técnico. No abras la fuente de alimentación.']
+];
+let report,manual={},category='Todas',storageOk=true;
+const $=id=>document.getElementById(id);
+function el(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=String(text);if(cls)n.className=cls;return n;}
+function badge(status){return el('span',labels[status]||labels.unknown,'badge '+status);}
+function loadReport(){
+ const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
+ const r=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));
+ if(r.schemaVersion!==1||!Array.isArray(r.checks)||!r.checks.every(x=>x&&typeof x.title==='string'&&order.includes(x.status)))throw Error('Formato de informe no compatible.');
+ return r;
+}
+function storageKey(){return 'pcclaro.manual.'+report.machine+'.'+report.startedAt;}
+function updateManualState(){
+ const done=manualTests.filter(([id])=>manual[id]&&manual[id].status!=='pending').length;
+ $('manualstate').textContent=done+' de '+manualTests.length+' pruebas con respuesta.'+(storageOk?' Guardadas en este navegador.':' El navegador no permite guardarlas: exportá el JSON antes de cerrar.');
+}
+function renderManual(){
+ $('manualgrid').replaceChildren();
+ for(const [id,title,help] of manualTests){
+  const card=el('article',undefined,'manualcard');card.append(el('h3',title),el('p',help));
+  const choices=el('div',undefined,'choices');choices.setAttribute('role','group');choices.setAttribute('aria-label',title);
+  const state=manual[id]?.status||'pending';
+  for(const [value,label] of [['pass','Correcto'],['fail','Falla observada'],['pending','Pendiente']]){
+   const b=el('button',label,state===value?'selected':'');b.type='button';b.setAttribute('aria-pressed',String(state===value));
+   b.onclick=()=>{manual[id]={status:value,updatedAt:new Date().toISOString()};try{localStorage.setItem(storageKey(),JSON.stringify(manual));}catch{storageOk=false;}renderManual();const next=$('manualgrid').querySelectorAll('article')[manualTests.findIndex(t=>t[0]===id)].querySelector('[aria-pressed="true"]');next?.focus();};choices.append(b);
+  }
+  card.append(el('div','Resultado declarado: '+({pass:'Correcto',fail:'Falla observada',pending:'Pendiente'}[state]||'Pendiente'),'subtle'),choices);$('manualgrid').append(card);
+ }
+ updateManualState();
+}
+function table(rows){
+ const wrap=el('div',undefined,'tablewrap'),t=el('table'),head=el('thead'),body=el('tbody'),tr=el('tr');
+ const keys=[...new Set(rows.flatMap(row=>Object.keys(row||{})))];
+ for(const key of keys)tr.append(el('th',key.replaceAll('_',' ')));head.append(tr);t.append(head);
+ for(const row of rows){const line=el('tr');for(const key of keys){let value=row[key];if(value===null||value===undefined||value==='')value='ND';if(typeof value==='object')value=JSON.stringify(value);line.append(el('td',value));}body.append(line);}
+ t.append(body);wrap.append(t);return wrap;
+}
+function renderResults(){
+ const q=$('search').value.trim().toLocaleLowerCase('es'),attention=$('attention').checked;
+ const checks=report.checks.filter(x=>(category==='Todas'||x.category===category)&&(!attention||['critical','warn','unknown'].includes(x.status))&&(!q||[x.title,x.summary,x.next,x.category,JSON.stringify(x.rows)].join(' ').toLocaleLowerCase('es').includes(q))).sort((a,b)=>order.indexOf(a.status)-order.indexOf(b.status));
+ $('results').replaceChildren();$('shown').textContent=checks.length+' de '+report.checks.length;
+ if(!checks.length)$('results').append(el('p','No hay resultados para este filtro.','empty'));
+ for(const check of checks){
+  const d=el('details',undefined,'result');d.dataset.status=check.status;d.dataset.id=check.id;const s=el('summary'),title=el('div',undefined,'title');title.append(el('h3',check.title),el('p',check.summary));s.append(badge(check.status),title);d.append(s);
+  const b=el('div',undefined,'body');b.append(el('p','Qué se comprobó: '+check.scope,'scope'));
+  if(Array.isArray(check.rows)&&check.rows.length)b.append(table(check.rows));
+  b.append(el('p',check.next,'next'));if(check.error)b.append(el('p','Detalle técnico: '+check.error,'technical'));d.append(b);$('results').append(d);
+ }
+}
+function render(){
+ if(report.demo){const note=el('div','EJEMPLO CON DATOS FICTICIOS. Este archivo muestra la interfaz; no diagnosticó ninguna PC.','notice');$('main').prepend(note);document.title='EJEMPLO · OptimizadorPc';}
+ $('meta').textContent=report.machine+' · '+new Date(report.finishedAt).toLocaleString('es-AR')+' · '+(report.administrator?'Con permisos de administrador':'Permisos limitados');
+ for(const status of order){const c=el('div',undefined,'count '+status);c.append(el('strong',report.checks.filter(x=>x.status===status).length),el('span',labels[status]));$('counts').append(c);}
+ const priorities=report.checks.filter(x=>['critical','warn'].includes(x.status)).sort((a,b)=>order.indexOf(a.status)-order.indexOf(b.status));
+ $('priorities').append(el('h2',priorities.length?'Por dónde empezar':'No se registraron alertas en las consultas realizadas'));
+ if(!priorities.length)$('priorities').append(el('p','Revisá los controles sin verificar y completá las pruebas guiadas.','subtle'));
+ for(const x of priorities){const a=el('article',undefined,x.status);a.append(el('h3',x.title),el('p',x.summary+' '+x.next));$('priorities').append(a);}
+ for(const cat of ['Todas',...new Set(report.checks.map(x=>x.category))]){const b=el('button',cat,cat==='Todas'?'active':'');b.type='button';b.setAttribute('aria-pressed',String(cat==='Todas'));b.onclick=()=>{category=cat;for(const x of $('categories').children){x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));}renderResults();};$('categories').append(b);}
+ for(const limit of report.limitations||[])$('limits').append(el('li',limit));
+ renderResults();renderManual();
+}
+function exportReport(){
+ const manualResults=manualTests.map(([id,title])=>({id,title,status:manual[id]?.status||'pending',updatedAt:manual[id]?.updatedAt||null,source:'observacion_del_usuario'}));
+ const blob=new Blob([JSON.stringify({...report,manual:manualResults,manualExportedAt:new Date().toISOString()},null,2)],{type:'application/json;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download='OptimizadorPc-'+String(report.machine).replace(/[^a-zA-Z0-9_-]/g,'_')+'-completo.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+let colors=['#fff','#000','#f00','#0f0','#00f','#808080'],colorIndex=0;
+function closeScreen(){if($('overlay').style.display!=='flex')return;$('overlay').style.display='none';if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});}
+async function startScreen(){colorIndex=0;$('overlay').style.background=colors[0];$('overlay').style.display='flex';try{await $('overlay').requestFullscreen();}catch{} }
+$('overlay').onclick=()=>{colorIndex++;if(colorIndex===colors.length){closeScreen();return;}$('overlay').style.background=colors[colorIndex];};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeScreen();});
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)closeScreen();});
+async function tone(pan){
+ try{const AudioCtx=window.AudioContext||window.webkitAudioContext;const ctx=new AudioCtx();await ctx.resume();const osc=ctx.createOscillator(),gain=ctx.createGain(),panner=ctx.createStereoPanner();panner.pan.value=pan;osc.frequency.value=440;gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(.08,ctx.currentTime+.025);gain.gain.linearRampToValueAtTime(0,ctx.currentTime+.35);osc.connect(gain);gain.connect(panner);panner.connect(ctx.destination);osc.start();osc.stop(ctx.currentTime+.4);osc.onended=()=>ctx.close();}catch{alert('No se pudo reproducir el tono en este navegador. Probá el audio desde Configuración de Windows.');}
+}
+const keys=new Set();$('keys').addEventListener('keydown',e=>{if(e.code){keys.add(e.code);$('keys').textContent='Detectadas: '+[...keys].join(' · ');}if(e.key!=='Tab'&&e.key!=='Escape')e.preventDefault();});
+$('keyboard').onclick=()=>{$('keys').focus();};$('screen').onclick=startScreen;$('left').onclick=()=>tone(-1);$('right').onclick=()=>tone(1);$('export').onclick=exportReport;
+$('jump').onclick=()=>$('manual').scrollIntoView({behavior:'smooth'});
+let printState=null;window.addEventListener('beforeprint',()=>{if(printState)return;printState={category,search:$('search').value,attention:$('attention').checked,open:Object.fromEntries([...document.querySelectorAll('.result')].map(x=>[x.dataset.id,x.open]))};category='Todas';$('search').value='';$('attention').checked=false;renderResults();for(const d of document.querySelectorAll('.result'))d.open=true;});window.addEventListener('afterprint',()=>{if(!printState)return;category=printState.category;$('search').value=printState.search;$('attention').checked=printState.attention;renderResults();for(const d of document.querySelectorAll('.result'))d.open=!!printState.open[d.dataset.id];printState=null;});$('print').onclick=()=>window.print();
+$('search').addEventListener('input',renderResults);$('attention').addEventListener('change',renderResults);
+try{report=loadReport();try{const saved=JSON.parse(localStorage.getItem(storageKey())||'{}');if(saved&&typeof saved==='object'&&!Array.isArray(saved))manual=saved;}catch{storageOk=false;}render();}catch(error){document.querySelector('header').hidden=true;$('main').replaceChildren(el('h1','No se pudo abrir el informe'),el('p','Volvé a ejecutar el diagnóstico desde OptimizadorPc. Si abriste Report.html dentro de app, ese archivo es una plantilla y no un resultado.'),el('p',error.message,'technical'));}
+</script>
+</body></html>

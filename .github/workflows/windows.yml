@@ -1,0 +1,35 @@
+name: Verificación en Windows
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reglas y datos del informe
+        run: |
+          .\tests\Rules.Tests.ps1
+          .\tests\ReportData.Tests.ps1
+      - name: Ventana y búsqueda
+        run: |
+          powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File .\OptimizadorPc.ps1 -SmokeTest
+          if ($LASTEXITCODE -ne 0) { throw 'La comprobación de la ventana falló.' }
+      - name: Motor y archivos del diagnóstico
+        run: |
+          $output = Join-Path $env:RUNNER_TEMP 'OptimizadorPc-informe'
+          powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File .\app\Engine.ps1 -OutputDirectory $output
+          if ($LASTEXITCODE -ne 0) { throw 'El motor terminó con un error.' }
+          . .\app\ReportData.ps1
+          $report = Read-DiagnosticReport (Join-Path $output 'diagnostico.json')
+          if ($report.checks.Count -ne 21) { throw 'El informe no contiene los 21 controles.' }
+          $progress = Get-Content -LiteralPath (Join-Path $output 'progress.json') -Raw | ConvertFrom-Json
+          if (-not $progress.done -or -not (Test-Path -LiteralPath (Join-Path $output 'Informe.html'))) { throw 'La ejecución quedó incompleta.' }
+          'Motor e informe generados en el equipo virtual.'
