@@ -38,7 +38,8 @@ $statusColors = @{
 function New-Text([string]$Value, [int]$Size = 10, [switch]$Bold) {
     $control = New-Object Windows.Forms.Label
     $control.Text = $Value
-    $control.Font = New-Object Drawing.Font('Segoe UI', $Size, $(if ($Bold) {'Bold'} else {'Regular'}))
+    $style = if ($Bold) { [Drawing.FontStyle]::Bold } else { [Drawing.FontStyle]::Regular }
+    $control.Font = [Drawing.Font]::new('Segoe UI', [single]$Size, $style)
     $control.ForeColor = $ink
     $control.AutoSize = $true
     $control.Margin = New-Object Windows.Forms.Padding(0, 5, 12, 5)
@@ -345,11 +346,11 @@ $form.MinimumSize = New-Object Drawing.Size(760, 550)
 $form.StartPosition = 'CenterScreen'
 $form.AutoScaleMode = 'Dpi'
 $form.BackColor = $surface
-$form.Font = New-Object Drawing.Font('Segoe UI', 10)
+$form.Font = [Drawing.Font]::new('Segoe UI', [single]10)
 $layout = New-Grid 1 2
 $layout.Padding = New-Object Windows.Forms.Padding(16, 12, 16, 12)
-$null = $layout.RowStyles.Add((New-Object Windows.Forms.RowStyle('AutoSize')))
-$null = $layout.RowStyles.Add((New-Object Windows.Forms.RowStyle('Percent', 100)))
+$null = $layout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::AutoSize)))
+$null = $layout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::Percent, [single]100)))
 $form.Controls.Add($layout)
 
 $header = New-Flow
@@ -368,8 +369,8 @@ $tabs.TabPages.AddRange(@($diagnosticTab, $historyTab, $toolsTab))
 foreach ($page in $tabs.TabPages) { $page.BackColor = $surface; $page.Padding = New-Object Windows.Forms.Padding(12) }
 
 $dashboard = New-Grid 1 7
-for ($index = 0; $index -lt 6; $index++) { $null = $dashboard.RowStyles.Add((New-Object Windows.Forms.RowStyle('AutoSize'))) }
-$null = $dashboard.RowStyles.Add((New-Object Windows.Forms.RowStyle('Percent', 100)))
+for ($index = 0; $index -lt 6; $index++) { $null = $dashboard.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::AutoSize))) }
+$null = $dashboard.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::Percent, [single]100)))
 $diagnosticTab.Controls.Add($dashboard)
 
 $actions = New-Flow
@@ -420,9 +421,9 @@ $filters.Controls.AddRange(@($category, $state, (New-Text 'Buscar'), $search, $r
 $dashboard.Controls.Add($filters, 0, 5)
 
 $resultsLayout = New-Grid 2 1
-$null = $resultsLayout.ColumnStyles.Add((New-Object Windows.Forms.ColumnStyle('Percent', 58)))
-$null = $resultsLayout.ColumnStyles.Add((New-Object Windows.Forms.ColumnStyle('Percent', 42)))
-$null = $resultsLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle('Percent', 100)))
+$null = $resultsLayout.ColumnStyles.Add(([Windows.Forms.ColumnStyle]::new([Windows.Forms.SizeType]::Percent, [single]58)))
+$null = $resultsLayout.ColumnStyles.Add(([Windows.Forms.ColumnStyle]::new([Windows.Forms.SizeType]::Percent, [single]42)))
+$null = $resultsLayout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::Percent, [single]100)))
 $dashboard.Controls.Add($resultsLayout, 0, 6)
 $results = New-List @('Estado', 'Comprobación', 'Área') @(116, 290, 125)
 $results.AccessibleName = 'Resultados del diagnóstico'
@@ -447,9 +448,9 @@ $state.Add_SelectedIndexChanged({ Refresh-Results })
 $search.Add_TextChanged({ Refresh-Results })
 
 $historyLayout = New-Grid 1 3
-$null = $historyLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle('AutoSize')))
-$null = $historyLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle('AutoSize')))
-$null = $historyLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle('Percent', 100)))
+$null = $historyLayout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::AutoSize)))
+$null = $historyLayout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::AutoSize)))
+$null = $historyLayout.RowStyles.Add(([Windows.Forms.RowStyle]::new([Windows.Forms.SizeType]::Percent, [single]100)))
 $historyTab.Controls.Add($historyLayout)
 $historyActions = New-Flow
 $showHistoryButton = New-Button 'Ver diagnóstico seleccionado' { Show-HistoryReport } -Primary
